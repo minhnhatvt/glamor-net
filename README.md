@@ -17,16 +17,10 @@ pip install opencv-python==4.3.0.36 matplotlib numpy==1.18.5 dlib
 
 
 
+# Dataset
+We provide the NCAER-S dataset with original images and extracted faces (a .txt file with 4 bounding box coordinate) in the NCAERS dataset.
 
-4. Download our prepared dataset from google drive [PASCAL_SBD.zip](https://drive.google.com/file/d/1uyZtl6LDxbgHC7ctDl0rbGlxOOrvCssG/view?usp=sharing).
-Extract and put it into data/sbd folder. (the folder should have sbd/imgs and <anotation_files>.json)
-5. Run the desired command above for training or evaluating.
-Notice that the orignal [PASCAL SBD](http://home.bharathh.info/pubs/codes/SBD/download.html) using the voc's annotation format.\
-To run this code, we've converted it into coco's format. we put the prepared dataset download link in the tutorial below
-
-# Datasets download
-We provide the original images and extracted faces (a .txt file with 4 bounding box coordinate) in the NCAERS dataset.
-download at []()
+Download at []()
 
 # Running
 Our code supports these types of execution with argument -m or --mode:
