@@ -1,10 +1,7 @@
 # Global-Local Attention for Emotion Recognition
 
-
-
-# Getting Started
-
 ![image](dataset_examples/ex1.png)
+
 
 ## Requirements
 - Python 3
