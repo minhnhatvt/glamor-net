@@ -44,7 +44,13 @@ python run.py -m eval --dataset_type=test --trained_weights=path/to/weights
 # Evaluation
 Our trained model is available at ```weights/glamor-net/Model```.
 - Firstly, please download the dataset and extract it into "data/" directory.
-- Then specified the path to the data (images and crop)
+- Then specified the path to the test data (images and crop):
+```Python
+config = config.copy({
+    'test_images': 'path_to_test_images',
+    'test_crop':   'path_to_test_cropped_faces' #(.txt files),
+})
+```
 - Run this command to evaluate the model. We are using the classification accuracy as our evaluation metric.
 ```
 # Evaluate our model in the test set
@@ -56,6 +62,17 @@ python run.py -m eval --dataset_type=test --trained_weights=weights/glamor-net/M
 Firstly please extract the faces from train set (val set is optional)
 - Specify the path to the dataset in config.py (train_images, val_images, test_images)
 - Specify the desired face-extracted output path in config.py (train_crop, val_crop, test_crop)
+```Python
+config = config.copy({
+
+    'train_images': 'path_to_training_images',
+    'train_crop':   'path_to_training_cropped_faces' #(.txt files),
+
+    'val_images': 'path_to_validation_images',
+    'val_crop':   'path_to_validation_cropped_faces' #(.txt files)
+
+})
+```
 - Perform face extraction on both dataset_type by running the commands:
 ```
 python run.py -m extract --dataset_type=<train, val or test>
