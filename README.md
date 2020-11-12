@@ -90,8 +90,8 @@ We support prediction on single image or on images in a directory by running thi
 # Predict on single image
 python predict.py --trained_weights=weights/glamor-net/Model --input=test_images/1.jpg --output=path/to/out/directory
 
-# Predict on image
-python predict.py --trained_weights=weights/glamor-net/Model --input=test_images/--output=out/
+# Predict on images in directory
+python predict.py --trained_weights=weights/glamor-net/Model --input=test_images/ --output=out/
 
 ```
 
