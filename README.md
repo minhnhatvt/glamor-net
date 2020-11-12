@@ -77,7 +77,7 @@ config = config.copy({
 ```
 python run.py -m extract --dataset_type=<train, val or test>
 ```
-Train the model:
+Start training:
 ```
 # Train a new model from sratch
 python run.py -m train 
