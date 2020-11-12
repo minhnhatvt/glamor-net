@@ -24,7 +24,7 @@ Download at []()
 
 # Running
 Our code supports these types of execution with argument -m or --mode:
-```
+```Shell
 #extract faces from <train, val or test> dataset (specified in config.py)
 python run.py -m extract dataset_type=train
 
@@ -46,7 +46,7 @@ config = config.copy({
 })
 ```
 - Run this command to evaluate the model. We are using the classification accuracy as our evaluation metric.
-```
+```Shell
 # Evaluate our model in the test set
 python run.py -m eval --dataset_type=test --trained_weights=weights/glamor-net/Model
 ```
@@ -68,11 +68,11 @@ config = config.copy({
 })
 ```
 - Perform face extraction on both dataset_type by running the commands:
-```
+```Shell
 python run.py -m extract --dataset_type=<train, val or test>
 ```
 Start training:
-```
+```Shell
 # Train a new model from sratch
 python run.py -m train 
 
@@ -86,7 +86,7 @@ python run.py -m train --resume=last
 # Prediction
 We support prediction on single image or on images in a directory by running this command:
 
-```
+```Shell
 # Predict on single image
 python predict.py --trained_weights=weights/glamor-net/Model --input=test_images/1.jpg --output=path/to/out/directory
 
