@@ -8,7 +8,7 @@
 
 ## Requirements
 - Python 3
-- Install [tensorflow](https://www.tensorflow.org/install). (or tensorflow-gpu) >= 2.0.0 
+- Install [tensorflow](https://www.tensorflow.org/install) (or tensorflow-gpu) >= 2.0.0 
 - Install some other packages
 ```Shell
 pip install cython
@@ -87,6 +87,18 @@ python run.py -m train --resume=path/to/trained_weights
 
 # Resume the last checkpoint model
 python run.py -m train --resume=last
+```
+
+# Prediction
+We support prediction on single image or on images in a directory by running this command:
+
+```
+# Predict on single image
+python predict.py --trained_weights=weights/glamor-net/Model --input=test_images/1.jpg --output=path/to/out/directory
+
+# Predict on image
+python predict.py --trained_weights=weights/glamor-net/Model --input=test_images/--output=out/
+
 ```
 
 # Use the help option to see a description of all available command line arguments
