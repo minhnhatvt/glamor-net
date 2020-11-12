@@ -40,16 +40,16 @@ base_config = Config({
     'name': 'Base Config',
 
     # Training images and cropped faces
-    'train_images': 'data/NCAERS/images/train',
-    'train_crop': 'data/NCAERS/crop/train',
+    'train_images': 'data/NCAER-S/images/train',
+    'train_crop': 'data/NCAER-S/crop/train',
 
     # Valid images and cropped faces
-    'val_images': 'data/NCAERS/images/val',
-    'val_crop': 'data/NCAERS/crop/val',
+    'val_images': 'data/NCAER-S/images/val',
+    'val_crop': 'data/NCAER-S/crop/val',
 
     # test images and cropped faces
-    'test_images': 'data/NCAERS/images/test',
-    'test_crop': 'data/NCAERS/crop/test',
+    'test_images': 'data/NCAER-S/images/test',
+    'test_crop': 'data/NCAER-S/crop/test',
 
     'face_input_size': [96, 96],
     'context_input_size': [112, 112],

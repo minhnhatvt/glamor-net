@@ -1,4 +1,3 @@
-
 import tensorflow as tf
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL']='3'
@@ -7,12 +6,13 @@ from train import *
 from data_utils import *
 from model import *
 import argparse
+
 class ArgumentError(RuntimeError):
     pass
 
 def parse_arg(argv=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument("-m" ,"--mode", help = "Choose running mode: extract - extract faces, train - training model with config specified in config.py, eval - running evaluation on the dataset)",required=True)
+    parser.add_argument("-m" ,"--mode", help = "Choose running mode: \nextract - extract faces, \ntrain - training model with config specified in config.py, \neval - running evaluation on the dataset)",required=True)
     parser.add_argument("--trained_weights", type=str,
                         default="weights/glamor-net/Model",
                         help="/path/to/model_weights in tf2 saved format")
