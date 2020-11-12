@@ -3,8 +3,6 @@
 
 
 # Getting Started
-If you want to validate our result or training by yourself. We've already setup all the process in the google colab link below.\
-Some of the examples in PASCAL SBD dataset. 
 
 ![image](dataset_examples/ex1.png)
 
@@ -29,6 +27,7 @@ To run this code, we've converted it into coco's format. we put the prepared dat
 # Datasets download
 We provide the original images and extracted faces (a .txt file with 4 bounding box coordinate) in the NCAERS dataset.
 download at []()
+
 # Running
 Our code supports these types of execution with argument -m or --mode:
 ```
@@ -44,12 +43,14 @@ python run.py -m eval --dataset_type=test --trained_weights=path/to/weights
 
 # Evaluation
 Our trained model is available at ```weights/glamor-net/Model```.
-
+- Firstly, please download the dataset and extract it into "data/" directory.
+- Then specified the path to the data (images and crop)
+- Run this command to evaluate the model. We are using the classification accuracy as our evaluation metric.
 ```
-#Evaluate our model in the test set
+# Evaluate our model in the test set
 python run.py -m eval --dataset_type=test --trained_weights=weights/glamor-net/Model
 ```
-Run this command to 
+
 
 # Training 
 Firstly please extract the faces from train set (val set is optional)
