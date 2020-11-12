@@ -10,12 +10,12 @@ Some of the examples in PASCAL SBD dataset.
 
 ## Requirements
 - Python 3
-- Install tensorflow (or tensorflow-gpu) >= 2.0.0 [tensorflow](https://www.tensorflow.org/install).
+- Install [tensorflow](https://www.tensorflow.org/install). (or tensorflow-gpu) >= 2.0.0 
 - Install some other packages
-       ```Shell
-       pip install cython
-       pip install opencv-python==4.3.0.36 matplotlib numpy==1.18.5 Keras-Preprocessing==1.1.2 dlib
-       ```
+```Shell
+pip install cython
+pip install opencv-python==4.3.0.36 matplotlib numpy==1.18.5 dlib
+```
 
 
 
@@ -26,53 +26,52 @@ Extract and put it into data/sbd folder. (the folder should have sbd/imgs and <a
 Notice that the orignal [PASCAL SBD](http://home.bharathh.info/pubs/codes/SBD/download.html) using the voc's annotation format.\
 To run this code, we've converted it into coco's format. we put the prepared dataset download link in the tutorial below
 
-# Dataset statistics
-We also provide the code for examine the dataset (how many classess? or how many object and annotation in each class?).\
-You can see the statistics by running
+# Datasets download
+We provide the original images and extracted faces (a .txt file with 4 bounding box coordinate) in the NCAERS dataset.
+download at []()
+# Running
+Our code supports these types of execution with argument -m or --mode:
 ```
-python dataset_stats.py --dataset="path to dataset" --subset="subset name (train or val)"
-```
-# Training on PASCAL SBD
+#extract faces from <train, val or test> dataset (specified in config.py)
+python run.py -m extract dataset_type=train
 
-Firstly, please download Resnet50 pretrained imagenet [here](https://drive.google.com/file/d/1Jy3yCdbatgXa5YYIdTCRrSV0S9V5g1rn/view)
-and put it into `./weights` folder
+#train the model with config specified in the config.py
+python run.py -m train 
+
+#evaluate the trained model on the dataset <dataset_type>
+python run.py -m eval --dataset_type=test --trained_weights=path/to/weights
 ```
 
-# Train a new model starting from pretrained ImageNet with specified parameters
-python train.py --config=yolact_resnet50_pascal_config --batch_size=8 --validation_epoch=5 
+# Evaluation
+Our trained model is available at ```weights/glamor-net/Model```.
+
+```
+#Evaluate our model in the test set
+python run.py -m eval --dataset_type=test --trained_weights=weights/glamor-net/Model
+```
+Run this command to 
+
+# Training 
+Firstly please extract the faces from train set (val set is optional)
+- Specify the path to the dataset in config.py (train_images, val_images, test_images)
+- Specify the desired face-extracted output path in config.py (train_crop, val_crop, test_crop)
+- Perform face extraction on both dataset_type by running the commands:
+```
+python run.py -m extract --dataset_type=<train, val or test>
+```
+Train the model:
+```
+# Train a new model from sratch
+python run.py -m train 
 
 # Continue training a model that you had trained earlier
-python train.py --config=yolact_resnet50_pascal_config --batch_size=8 --validation_epoch=5 --resume="path to weights.pth"
+python run.py -m train --resume=path/to/trained_weights
+
+# Resume the last checkpoint model
+python run.py -m train --resume=last
+```
 
 # Use the help option to see a description of all available command line arguments
-python train.py --help
-
-```
-
-The training schedule, learning rate, and other hyperparameters should be set in `data/config.py`
-
-## Evaluating
-You can also run the validation on the sbd_val subset by command:
-```
-python eval.py --trained_model="weights/yolact_resnet50_pascal_112_120000.pth" --config=yolact_resnet50_pascal_config
-```
-
-For inference on images
-```
-python eval.py --trained_model="weights/yolact_resnet50_pascal_112_120000.pth" --score_threshold=0.6 --top_k=15 --images=path/to/input/folder:path/to/output/folder
-```
-
-## Pretrained Weights
-Our model achieved the result show in the table after 120k iterations on `sbd val set`
-type |  all  |  .50  |  .55  |  .60  |  .65  |  .70  |  .75  |  .80  |  .85  |  .90  |  .95  
---- | --- | --- | --- |--- | --- | --- | --- | --- | --- | --- | ---  
-box | 46.77 | 75.00 | 72.46 | 68.85 | 63.77 | 57.47 | 50.02 | 39.87 | 26.89 | 11.84 |  1.55 
-mask| 45.32 | 71.73 | 68.04 | 64.16 | 60.08 | 54.37 | 47.35 | 39.19 | 28.78 | 16.18 |  3.27 
-
-
-Download our trained weights here: https://drive.google.com/file/d/1GvYj7T5rv4grRHeOwgm30cPLaorwFAGB/view
-
-
 
 
 
