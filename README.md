@@ -1,10 +1,10 @@
 # Global-Local Attention for Emotion Recognition
 
 <p float="left">
-  <img src="/test_images/1.jpg" width="100" />
-  <img src="/test_images/2.jpg" width="100" /> 
-  <img src="/test_images/3.jpg" width="100" />
-  <img src="/test_images/4.jpg" width="100" />
+  <img src="/test_images/1.jpg" width="300" />
+  <img src="/test_images/2.jpg" width="300" /> 
+  <img src="/test_images/3.jpg" width="300" />
+  <img src="/test_images/4.jpg" width="300" />
 </p>
 
 
