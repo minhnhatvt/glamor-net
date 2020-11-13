@@ -74,7 +74,7 @@ def predict_image(in_path, out_path = None, conf_threshold=0.6):
             continue
         image, face = predict_preprocess(img[:, :, ::-1], [x1, y1, x2, y2])
 
-        scores = model.call(tf.expand_dims(image, 0), tf.expand_dims(face, 0), training=False)
+        scores = model.call(tf.expand_dims(face,0),tf.expand_dims(image,0), training=False)
         y_pred = int(tf.argmax(scores, axis=1))
         class_conf = float(scores[0, y_pred])
         class_pred = config.class_names[y_pred]
@@ -120,10 +120,11 @@ def predict_folder(in_path, out_path = "out", conf_threshold=0.6):
                 continue
             image,face = predict_preprocess(img[:,:,::-1], [x1,y1,x2,y2])
 
-            scores = model.call(tf.expand_dims(image,0),tf.expand_dims(face,0), training=False)
+            scores = model.call(tf.expand_dims(face,0),tf.expand_dims(image,0), training=False)
             y_pred = int(tf.argmax(scores, axis=1))
             class_conf = float(scores[0,y_pred])
             class_pred = config.class_names[y_pred]
+
             out_img = cv2.rectangle(out_img, (x1, y1), (x2, y2), [0, 0, 255], 2)
 
             out_img = cv2.putText(out_img, class_pred + ": {:.2}".format(class_conf) , (x1,y1-10), cv2.FONT_HERSHEY_SIMPLEX ,
@@ -137,7 +138,6 @@ def predict_folder(in_path, out_path = "out", conf_threshold=0.6):
 if __name__ == "__main__":
     parse_arg()
     ext = os.path.splitext(args.input)[-1]
-    print(ext)
     if ext: #predict on single image
         if args.output:
             predict_image(args.input, args.output)
