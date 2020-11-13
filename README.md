@@ -1,6 +1,11 @@
 # Global-Local Attention for Emotion Recognition
 
-![image](dataset_examples/ex1.png)
+<p float="left">
+  <img src="/test_images/1.jpg" width="100" />
+  <img src="/test_images/2.jpg" width="100" /> 
+  <img src="/test_images/3.jpg" width="100" />
+  <img src="/test_images/4.jpg" width="100" />
+</p>
 
 
 ## Requirements
@@ -17,7 +22,7 @@ pip install opencv-python==4.3.0.36 matplotlib numpy==1.18.5 dlib
 # Dataset
 We provide the NCAER-S dataset with original images and extracted faces (a .txt file with 4 bounding box coordinate) in the NCAERS dataset.
 
-The dataset can be downloaded at []()
+***The dataset can be downloaded at [Google Drive](https://bit.ly/NCAERS_dataset)***
 
 Note that the dataset and label should have structure like the followings:
 ```
