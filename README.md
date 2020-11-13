@@ -17,7 +17,35 @@ pip install opencv-python==4.3.0.36 matplotlib numpy==1.18.5 dlib
 # Dataset
 We provide the NCAER-S dataset with original images and extracted faces (a .txt file with 4 bounding box coordinate) in the NCAERS dataset.
 
-Download at []()
+The dataset can be downloaded at []()
+
+Note that the dataset and label should have structure like the followings:
+```
+NCAER-S 
+│
+└───images
+│   │
+│   └───class_1
+│   │   │   img1.jpg
+│   │   │   img2.jpg
+│   │   │   ...
+│   └───class_2
+│       │   img1.jpg
+│       │   img2.jpg
+│       │   ...
+│   
+└───crop
+│   │
+│   └───class_1
+│   │   │   img1.txt
+│   │   │   img2.txt
+│   │   │   ...
+│   └───class_2
+│       │   img1.txt
+│       │   img2.txt
+│       │   ...
+```
+
 
 # Running
 Our code supports these types of execution with argument -m or --mode:
